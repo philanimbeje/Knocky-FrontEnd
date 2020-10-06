@@ -8,7 +8,7 @@ import { UserModel } from 'src/app/models/user';
 import { ProjectService } from 'src/app/services/project/project.service';
 import { TestGroupService } from 'src/app/services/testGroup/test-group.service';
 import { UserProjectService } from 'src/app/services/userProject/user-project.service';
-import { TestCaseComponent } from './test-case/test-case.component';
+import { TesterTestCaseComponent } from './test-case/test-case.component';
 
 @Component({
   selector: 'app-tester',
@@ -58,7 +58,7 @@ export class TesterComponent implements OnInit {
 
   // tslint:disable-next-line: typedef
   loadTestCases() {
-    const dialogRef = this.dialog.open(TestCaseComponent, {
+    const dialogRef = this.dialog.open(TesterTestCaseComponent, {
       width: '800px',
       data: {testGroup: this.selectedTestGroup}
      });

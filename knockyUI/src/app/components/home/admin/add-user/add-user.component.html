@@ -1,1 +1,31 @@
-<p>add-user works!</p>
+<h1 mat-dialog-title>Add User</h1>
+
+<div mat-dialog-content>
+  <mat-form-field>
+    <mat-label>Name</mat-label>
+    <input matInput [(ngModel)]="data.name">
+  </mat-form-field>
+  <mat-form-field>
+    <mat-label>Surname</mat-label>
+    <input matInput [(ngModel)]="data.surname">
+  </mat-form-field>
+  <mat-form-field>
+    <mat-label>Username</mat-label>
+    <input matInput [(ngModel)]="data.username">
+  </mat-form-field>
+  <mat-form-field>
+    <mat-label>Password</mat-label>
+    <input matInput type='password' [(ngModel)]="data.password">
+  </mat-form-field>
+  <mat-form-field>
+    <mat-label>Role</mat-label>
+    <select matNativeControl required [(ngModel)]="data.roleId">
+      <option *ngFor="let role of roles" value="{{role.id}}">{{role.roleName}}</option>
+    </select>
+  </mat-form-field>
+</div>
+
+<div mat-dialog-actions>
+  <button mat-button (click)="onNoClick()">No Thanks</button>
+  <button mat-button [mat-dialog-close]="data" cdkFocusInitial>Ok</button>
+</div>

@@ -10,6 +10,7 @@ Test Cases
     <td mat-cell *matCellDef="let element" [attr.colspan]="columnsToDisplay.length">
       <div class="example-element-detail"
            [@detailExpand]="element == expandedElement ? 'expanded' : 'collapsed'">
+           <button mat-mini-fab  (click)="markTestCase()"><mat-icon>rule</mat-icon></button>
       </div>
     </td>
   </ng-container>

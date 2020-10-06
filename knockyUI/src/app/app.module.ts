@@ -16,6 +16,7 @@ import {MatCardModule} from '@angular/material/card';
 import {MatCheckboxModule} from '@angular/material/checkbox';
 import {MatSelectModule} from '@angular/material/select';
 import {MatSortModule} from '@angular/material/sort';
+import {MatButtonModule} from '@angular/material/button';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -26,6 +27,7 @@ import { HomeComponent } from './components/home/home.component';
 import { AdminComponent } from './components/home/admin/admin.component';
 import { ModeratorComponent } from './components/home/moderator/moderator.component';
 import { TesterComponent } from './components/home/tester/tester.component';
+import { TesterTestCaseComponent } from './components/home/tester/test-case/test-case.component';
 import { AddUserComponent } from './components/home/admin/add-user/add-user.component';
 import { AddProjectComponent } from './components/home/admin/add-project/add-project.component';
 import { ProjectsTableDialogComponent } from './components/home/admin/projects-table-dialog/projects-table-dialog.component';
@@ -42,6 +44,7 @@ import { TestCaseComponent } from './components/home/moderator/test-case/test-ca
 import { AddTestCaseComponent } from './components/home/moderator/test-case/add-test-case/add-test-case.component';
 import { DeleteTestCaseComponent } from './components/home/moderator/test-case/delete-test-case/delete-test-case.component';
 import { EditTestCaseComponent } from './components/home/moderator/test-case/edit-test-case/edit-test-case.component';
+import { MarkTestCaseComponent } from './components/home/tester/mark-test-case/mark-test-case.component';
 
 @NgModule({
   declarations: [
@@ -66,7 +69,9 @@ import { EditTestCaseComponent } from './components/home/moderator/test-case/edi
     TestCaseComponent,
     AddTestCaseComponent,
     DeleteTestCaseComponent,
-    EditTestCaseComponent
+    EditTestCaseComponent,
+    TesterTestCaseComponent,
+    MarkTestCaseComponent
   ],
   imports: [
     BrowserModule,
@@ -86,6 +91,7 @@ import { EditTestCaseComponent } from './components/home/moderator/test-case/edi
     MatCardModule,
     MatCheckboxModule,
     MatSortModule,
+    MatButtonModule
   ],
   entryComponents: [
     AddUserComponent,

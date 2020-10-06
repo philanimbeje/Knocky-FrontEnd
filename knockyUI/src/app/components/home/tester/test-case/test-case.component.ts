@@ -6,8 +6,9 @@ import { TestCaseModel } from 'src/app/models/testCase';
 import { TestGroupModel } from 'src/app/models/testGroup';
 import { TestCaseService } from 'src/app/services/testCase/test-case.service';
 import { TestGroupDialogData } from '../../moderator/moderator.component';
-import { MatSort } from '@angular/material/sort';
+import { MatTableDataSource, MatTableModule  } from '@angular/material/table';
 import { DataSource } from '@angular/cdk/table';
+import { MarkTestCaseComponent } from '../mark-test-case/mark-test-case.component';
 
 @Component({
   selector: 'app-test-case',
@@ -21,18 +22,16 @@ import { DataSource } from '@angular/cdk/table';
     ]),
   ]
 })
-export class TestCaseComponent implements OnInit {
+export class TesterTestCaseComponent implements OnInit {
 
   testGroup: TestGroupModel;
   testCases: TestCaseModel[];
   columnsToDisplay = ['testCaseDescription', 'expectedResults'];
   expandedElement: TestCaseModel | null;
-  newTestCase: TestCaseModel;
-  deleteTestCaseValidated = false;
 
 
   constructor(
-    public dialogRef: MatDialogRef<TestCaseComponent>,
+    public dialogRef: MatDialogRef<TesterTestCaseComponent>,
     @Inject(MAT_DIALOG_DATA) public data: TestGroupDialogData,
     private toastr: ToastrService,
     private testCaseService: TestCaseService,
@@ -44,6 +43,19 @@ export class TestCaseComponent implements OnInit {
       (data: TestCaseModel[]) => {this.testCases = data; });
   }
 
+  markTestCase(): void
+  {
+    const dialogRef = this.dialog.open(MarkTestCaseComponent, {
+      width: '250px',
+      data: {testCase: this.expandedElement}
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      if (result) {
+        //this.testCaseService.updateTestCase(result, this.testGroup.id);
+      }
+    });
+  }
   onNoClick(): void {
     this.dialogRef.close();
   }

@@ -1,0 +1,13 @@
+User Projects for '{{user.username}}'
+<br>
+<mat-card>
+  <mat-card-content>
+  <section *ngFor="let item of projectList" class="section">
+    <mat-checkbox  [(ngModel)]="item.isSelected" (change)="toggleCheck(item)">{{item.project.projectName}}</mat-checkbox>
+  </section>
+</mat-card-content>
+</mat-card>
+
+<div mat-dialog-actions>
+  <button mat-button (click)="onNoClick()">Exit</button>
+</div>

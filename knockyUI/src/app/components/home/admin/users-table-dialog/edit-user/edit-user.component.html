@@ -1,0 +1,29 @@
+Update User
+<br><br>
+  <mat-form-field >
+    <mat-label>Name</mat-label>
+    <input matInput [(ngModel)]="data.user.name" placeholder="Name" value="{{data.user.name}}">
+  </mat-form-field>
+  <mat-form-field >
+    <mat-label>Surname</mat-label>
+    <input matInput [(ngModel)]="data.user.surname" placeholder="Surname" value="{{data.user.surname}}">
+  </mat-form-field>
+  <mat-form-field >
+    <mat-label>Username</mat-label>
+    <input matInput [(ngModel)]="data.user.username" placeholder="Username" value="{{data.user.username}}">
+  </mat-form-field>
+  <mat-form-field >
+    <mat-label>Password</mat-label>
+    <input matInput [(ngModel)]="data.user.password" placeholder="Password" value="{{data.user.password}}">
+  </mat-form-field>
+  <mat-form-field >
+    <mat-label>Role</mat-label>
+    <select matNativeControl required [(ngModel)]="data.user.roleId" [ngModelOptions]="{standalone: true}">
+      <option *ngFor="let role of roles" value="{{role.id}}">{{role.roleName}}</option>
+    </select>
+  </mat-form-field>
+
+  <div mat-dialog-actions>
+    <button mat-button (click)="onNoClick()">No Thanks</button>
+    <button mat-button [mat-dialog-close]="data" cdkFocusInitial>Ok</button>
+  </div>

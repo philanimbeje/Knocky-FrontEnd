@@ -1,0 +1,4 @@
+<button mat-button color="warn" class='logout' (click)="logOut()">Logout</button>
+<app-admin [user]="user" *ngIf="user?.roleId == 1"></app-admin>
+<app-moderator  [user]="user" *ngIf="user?.roleId == 2"></app-moderator>
+<app-tester [user]="user" *ngIf="user?.roleId == 3"></app-tester>

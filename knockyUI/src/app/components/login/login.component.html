@@ -1,0 +1,20 @@
+<div class='container'>
+  <br><br>
+  <h1>Knocky</h1>
+  <br><br>
+  <div class='form-container'>
+
+    <mat-form-field class="example-full-width">
+        <mat-label>Username</mat-label>
+        <input matInput type="text" placeholder="Enter Username" name="uname" value='loginCredentials.Username' required [(ngModel)]="loginCredentials.Username">
+      </mat-form-field>
+  <br>
+      <mat-form-field class="example-full-width">
+        <mat-label>Password</mat-label>
+        <input matInput type="password" placeholder="Enter Password" name="psw" value='loginCredentials.Password' required [(ngModel)]="loginCredentials.Password">
+      </mat-form-field>
+  <br><br>
+      <button mat-button color="primary" type="submit" (click)="onSubmit()">Login</button>
+
+  </div>
+</div>

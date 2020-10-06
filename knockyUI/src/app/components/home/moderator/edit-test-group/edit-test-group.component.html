@@ -1,0 +1,15 @@
+Update Test Group
+<br><br>
+  <mat-form-field >
+    <mat-label>Name</mat-label>
+    <input matInput [(ngModel)]="data.testGroup.groupName" placeholder="Name" value="{{data.testGroup.groupName}}">
+  </mat-form-field>
+  <mat-form-field >
+    <mat-label>Surname</mat-label>
+    <input matInput [(ngModel)]="data.testGroup.description" placeholder="Surname" value="{{data.testGroup.description}}">
+  </mat-form-field>
+
+  <div mat-dialog-actions>
+    <button mat-button (click)="onNoClick()">No Thanks</button>
+    <button mat-button [mat-dialog-close]="data" cdkFocusInitial>Ok</button>
+  </div>

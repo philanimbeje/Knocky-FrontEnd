@@ -1,0 +1,17 @@
+Add Test Case
+<br><br>
+ <div mat-dialog-content>
+  <mat-form-field>
+    <mat-label>Test Case Description</mat-label>
+    <input matInput [(ngModel)]="data.testCaseDescription">
+  </mat-form-field><br>
+  <mat-form-field>
+    <mat-label>Expected Results</mat-label>
+    <input matInput [(ngModel)]="data.expectedResults">
+  </mat-form-field>
+</div>
+
+<div mat-dialog-actions>
+  <button mat-button (click)="onNoClick()">Cancel</button>
+  <button mat-button [mat-dialog-close]="data" cdkFocusInitial>Create</button>
+</div>

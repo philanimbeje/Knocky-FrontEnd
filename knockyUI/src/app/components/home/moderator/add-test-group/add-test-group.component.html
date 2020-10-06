@@ -1,0 +1,17 @@
+Add Test Group
+<br><br>
+ <div mat-dialog-content>
+  <mat-form-field>
+    <mat-label>Group Name</mat-label>
+    <input matInput [(ngModel)]="data.groupName">
+  </mat-form-field><br>
+  <mat-form-field>
+    <mat-label>Description</mat-label>
+    <input matInput [(ngModel)]="data.description">
+  </mat-form-field>
+</div>
+
+<div mat-dialog-actions>
+  <button mat-button (click)="onNoClick()">Cancel</button>
+  <button mat-button [mat-dialog-close]="data" cdkFocusInitial>Create</button>
+</div>

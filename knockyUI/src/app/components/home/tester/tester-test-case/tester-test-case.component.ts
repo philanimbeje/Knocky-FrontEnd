@@ -12,8 +12,8 @@ import { MarkTestCaseComponent } from '../mark-test-case/mark-test-case.componen
 
 @Component({
   selector: 'app-test-case',
-  templateUrl: './test-case.component.html',
-  styleUrls: ['./test-case.component.css'],
+  templateUrl: './tester-test-case.component.html',
+  styleUrls: ['./tester-test-case.component.css'],
   animations: [
     trigger('detailExpand', [
       state('collapsed', style({height: '0px', minHeight: '0'})),
@@ -52,7 +52,7 @@ export class TesterTestCaseComponent implements OnInit {
 
     dialogRef.afterClosed().subscribe(result => {
       if (result) {
-        //this.testCaseService.updateTestCase(result, this.testGroup.id);
+        // this.testCaseService.updateTestCase(result, this.testGroup.id);
       }
     });
   }

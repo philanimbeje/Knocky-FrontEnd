@@ -27,7 +27,7 @@ import { HomeComponent } from './components/home/home.component';
 import { AdminComponent } from './components/home/admin/admin.component';
 import { ModeratorComponent } from './components/home/moderator/moderator.component';
 import { TesterComponent } from './components/home/tester/tester.component';
-import { TesterTestCaseComponent } from './components/home/tester/test-case/test-case.component';
+import { TesterTestCaseComponent } from './components/home/tester/tester-test-case/tester-test-case.component';
 import { AddUserComponent } from './components/home/admin/add-user/add-user.component';
 import { AddProjectComponent } from './components/home/admin/add-project/add-project.component';
 import { ProjectsTableDialogComponent } from './components/home/admin/projects-table-dialog/projects-table-dialog.component';
@@ -45,6 +45,12 @@ import { AddTestCaseComponent } from './components/home/moderator/test-case/add-
 import { DeleteTestCaseComponent } from './components/home/moderator/test-case/delete-test-case/delete-test-case.component';
 import { EditTestCaseComponent } from './components/home/moderator/test-case/edit-test-case/edit-test-case.component';
 import { MarkTestCaseComponent } from './components/home/tester/mark-test-case/mark-test-case.component';
+import { TestCyclesComponent } from './components/home/moderator/test-cycles/test-cycles.component';
+import { AddTestCycleComponent } from './components/home/moderator/test-cycles/add-test-cycle/add-test-cycle.component';
+import { EditTestCycleComponent } from './components/home/moderator/test-cycles/edit-test-cycle/edit-test-cycle.component';
+import { EndTestCycleComponent } from './components/home/moderator/test-cycles/end-test-cycle/end-test-cycle.component';
+import { TestCycleReportComponent } from './components/home/moderator/test-cycles/test-cycle-report/test-cycle-report.component';
+import { TestRecordsComponent } from './components/home/moderator/test-records/test-records.component';
 
 @NgModule({
   declarations: [
@@ -71,7 +77,13 @@ import { MarkTestCaseComponent } from './components/home/tester/mark-test-case/m
     DeleteTestCaseComponent,
     EditTestCaseComponent,
     TesterTestCaseComponent,
-    MarkTestCaseComponent
+    MarkTestCaseComponent,
+    TestCyclesComponent,
+    AddTestCycleComponent,
+    EditTestCycleComponent,
+    EndTestCycleComponent,
+    TestCycleReportComponent,
+    TestRecordsComponent
   ],
   imports: [
     BrowserModule,

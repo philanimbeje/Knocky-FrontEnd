@@ -8,7 +8,7 @@ import { UserModel } from 'src/app/models/user';
 import { ProjectService } from 'src/app/services/project/project.service';
 import { TestGroupService } from 'src/app/services/testGroup/test-group.service';
 import { UserProjectService } from 'src/app/services/userProject/user-project.service';
-import { TesterTestCaseComponent } from './test-case/test-case.component';
+import { TesterTestCaseComponent } from './tester-test-case/tester-test-case.component';
 
 @Component({
   selector: 'app-tester',

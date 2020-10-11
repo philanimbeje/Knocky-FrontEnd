@@ -30,6 +30,16 @@ export class LoginComponent implements OnInit {
 
   // tslint:disable-next-line: typedef
   ngOnInit() {
+    const exisitngUser = this.session.getSessionUser();
+    if (exisitngUser)
+    {
+      this.user = exisitngUser;
+      this.showSuccessMessage('', 'Continuing Session for' + this.user.username);
+      this.validateLogin(this.user);
+    }
+    else {
+      this.router.navigate(['']);
+    }
   }
 
   // tslint:disable-next-line: typedef

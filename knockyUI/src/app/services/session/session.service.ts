@@ -15,8 +15,11 @@ export class SessionService {
     return this.sessionInfo.getUser();
   }
 
-  // tslint:disable-next-line: typedef
-  setSessionUser(user: UserModel) {
+  clearSessionUser(): void {
+    this.sessionInfo.clearUser();
+  }
+
+  setSessionUser(user: UserModel): void {
     this.sessionInfo.setUser(user);
   }
 }

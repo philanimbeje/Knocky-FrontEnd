@@ -3,6 +3,7 @@ import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { RoleModel } from 'src/app/models/role';
 import { UserModel } from 'src/app/models/user';
 import { RoleService } from 'src/app/services/role/role.service';
+import { SessionService } from 'src/app/services/session/session.service';
 import { UserService } from 'src/app/services/user/user.service';
 import { DialogData } from '../users-table-dialog.component';
 
@@ -15,16 +16,19 @@ export class EditUserComponent implements OnInit {
 
   roles: RoleModel[];
   user: UserModel;
+  currentUser: UserModel;
 
   constructor(
     public dialogRef: MatDialogRef<EditUserComponent>,
     @Inject(MAT_DIALOG_DATA) public data: DialogData,
     private userService: UserService,
-    private roleService: RoleService) {
+    private roleService: RoleService,
+    private sessionInfo: SessionService) {
      }
 
   // tslint:disable-next-line: typedef
   ngOnInit() {
+    this.currentUser = this.sessionInfo.getSessionUser();
     this.roleService.getAllRoles().subscribe(
       (data: RoleModel[]) => this.roles = data);
     this.user = this.data.user;

@@ -1,14 +1,15 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { ToastrService } from 'ngx-toastr';
-import { TestCycleModel } from 'src/app/models/testCycle';
+import { ProjectModel } from 'src/app/models/project';
+import { TestRecordModel } from 'src/app/models/testRecord';
 
 @Injectable({
   providedIn: 'root'
 })
-export class TestCycleService {
+export class TestRecordService {
 
-  private REST_API_SERVER = 'https://localhost:44323/api/testcycles/';
+  private REST_API_SERVER = 'https://localhost:44323/api/testrecords/';
   httpOptions = {
     headers: new HttpHeaders({ 'Content-Type': 'application/json' })
   };
@@ -17,39 +18,39 @@ export class TestCycleService {
               private toastr: ToastrService) { }
 
   // tslint:disable-next-line: typedef
-  createTestCycle(newTestCycle: TestCycleModel) {
+  createTestRecord(newTestRecord: TestRecordModel) {
     try {
-      return this.http.post<TestCycleModel>(this.REST_API_SERVER, newTestCycle, this.httpOptions).subscribe();
+      return this.http.post<TestRecordModel>(this.REST_API_SERVER, newTestRecord, this.httpOptions).subscribe();
     } catch (e) {
-      this.showFailMessage('Test Cycle service error', e.message);
+      this.showFailMessage('Test Record service error', e.message);
     }
   }
 
   // tslint:disable-next-line: typedef
-  getTestCycles() {
+  getTestRecords() {
     return this.http.get(this.REST_API_SERVER);
   }
 
   // tslint:disable-next-line: typedef
-  getTestCycle(testCycle: TestCycleModel) {
-    return this.http.get(this.REST_API_SERVER + testCycle.id);
+  getTestRecordsForCycle(testCycleId: number) {
+    return this.http.get(this.REST_API_SERVER + 'getForCycles/' + testCycleId);
   }
 
   // tslint:disable-next-line: typedef
-  getTestCyclesForProject(projectId: number) {
-    return this.http.get(this.REST_API_SERVER + 'getForRecords/' + projectId);
+  getTestRecord(testRecord: TestRecordModel) {
+    return this.http.get(this.REST_API_SERVER + testRecord.id);
   }
 
   // tslint:disable-next-line: typedef
-  updateTestCycle(testCycle: TestCycleModel) {
-    this.http.put(this.REST_API_SERVER + testCycle.id, testCycle).subscribe();
-    this.showSuccessMessage('Test Cycle Service', 'Test Cycle updated');
+  updateTestRecord(testRecord: TestRecordModel) {
+    this.http.put(this.REST_API_SERVER + testRecord.id, testRecord).subscribe();
+    this.showSuccessMessage('Test Record Service', 'Test Record updated');
   }
 
   // tslint:disable-next-line: typedef
-  deleteTestCycle(testCycle: TestCycleModel) {
-    this.http.delete(this.REST_API_SERVER + testCycle.id).subscribe();
-    this.showSuccessMessage('Test Cycle Service', 'Test Cycle deleted');
+  deleteTestRecord(testRecord: TestRecordModel) {
+    this.http.delete(this.REST_API_SERVER + testRecord.id).subscribe();
+    this.showSuccessMessage('Test Record Service', 'Test Record deleted');
   }
 
   // tslint:disable-next-line: typedef

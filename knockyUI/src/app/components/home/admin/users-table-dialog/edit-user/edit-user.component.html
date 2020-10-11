@@ -16,7 +16,7 @@ Update User
     <mat-label>Password</mat-label>
     <input matInput [(ngModel)]="data.user.password" placeholder="Password" value="{{data.user.password}}">
   </mat-form-field>
-  <mat-form-field >
+  <mat-form-field *ngIf="currentUser.roleId == 1">
     <mat-label>Role</mat-label>
     <select matNativeControl required [(ngModel)]="data.user.roleId" [ngModelOptions]="{standalone: true}">
       <option *ngFor="let role of roles" value="{{role.id}}">{{role.roleName}}</option>

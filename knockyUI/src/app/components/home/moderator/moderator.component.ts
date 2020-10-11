@@ -7,11 +7,16 @@ import { TestGroupModel } from 'src/app/models/testGroup';
 import { UserModel } from 'src/app/models/user';
 import { ProjectService } from 'src/app/services/project/project.service';
 import { TestGroupService } from 'src/app/services/testGroup/test-group.service';
+import { UserService } from 'src/app/services/user/user.service';
 import { UserProjectService } from 'src/app/services/userProject/user-project.service';
+import { EditUserComponent } from '../admin/users-table-dialog/edit-user/edit-user.component';
+import { DialogData } from '../admin/users-table-dialog/users-table-dialog.component';
 import { AddTestGroupComponent } from './add-test-group/add-test-group.component';
 import { DeleteTestGroupComponent } from './delete-test-group/delete-test-group.component';
 import { EditTestGroupComponent } from './edit-test-group/edit-test-group.component';
 import { TestCaseComponent } from './test-case/test-case.component';
+import { TestCyclesComponent } from './test-cycles/test-cycles.component';
+import { TestRecordsComponent } from './test-records/test-records.component';
 
 export interface TestGroupDialogData {
   testGroup: TestGroupModel;
@@ -20,6 +25,10 @@ export interface TestGroupDialogData {
 export interface AddTestGroupDialogData {
   projectId: number;
   testGroup: TestGroupModel;
+}
+
+export interface AddTestCyleDialogData {
+  projectId: number;
 }
 
 export interface DeleteTestGroupDialogData {
@@ -42,6 +51,7 @@ export class ModeratorComponent implements OnInit {
 
   @Input() user: UserModel;
   projects: ProjectModel[];
+  selectedProject: ProjectModel;
   selectedProjectId: number;
   columnsToDisplay: string[] = ['groupName'];
   expandedElement: TestGroupModel | null;
@@ -55,7 +65,8 @@ export class ModeratorComponent implements OnInit {
     private projectService: ProjectService,
     private userProjectService: UserProjectService,
     private testGroupService: TestGroupService,
-    public dialog: MatDialog
+    public dialog: MatDialog,
+    private userService: UserService,
   ) { }
 
   // tslint:disable-next-line: typedef
@@ -100,6 +111,22 @@ export class ModeratorComponent implements OnInit {
   }
 
   // tslint:disable-next-line: typedef
+  editUser() {
+    const dialogRef = this.dialog.open(EditUserComponent, {
+      width: '250px',
+      data: {user: this.user}
+    });
+    dialogRef.afterClosed().subscribe(result => {
+      if (result) {
+        // tslint:disable-next-line: prefer-const
+        let resp = (result as DialogData).user;
+        resp.roleId = +resp.roleId;
+        this.userService.updateUser(resp);
+      }
+    });
+  }
+
+  // tslint:disable-next-line: typedef
   addTestGroup() {
     const dialogRef = this.dialog.open(AddTestGroupComponent, {
       width: '250px',
@@ -126,6 +153,26 @@ export class ModeratorComponent implements OnInit {
   // tslint:disable-next-line: typedef
   setTestGroup(element: TestGroupModel) {
     this.selectedTestGroup = element;
+  }
+
+  // tslint:disable-next-line: typedef
+  testCycles() {
+    const dialogRef = this.dialog.open(TestCyclesComponent, {
+      width: '900px',
+      data: {projectId: this.selectedProjectId}
+    });
+
+    dialogRef.afterClosed().subscribe();
+  }
+
+  // tslint:disable-next-line: typedef
+  testRecords() {
+    const dialogRef = this.dialog.open(TestRecordsComponent, {
+      width: '650px',
+      data: {projectId: this.selectedProjectId}
+    });
+
+    dialogRef.afterClosed().subscribe();
   }
 
 }

@@ -28,14 +28,14 @@ export class HomeComponent implements OnInit {
 
   // tslint:disable-next-line: typedef
   validateUser() {
-    if (this.user === null) {
-      this.showFailMessage('User Error', 'Loading User Information Failed');
+    if (!this.user) {
       this.router.navigate(['']);
     }
   }
 
   // tslint:disable-next-line: typedef
   logOut() {
+    this.session.clearSessionUser();
     this.router.navigate(['']);
   }
 

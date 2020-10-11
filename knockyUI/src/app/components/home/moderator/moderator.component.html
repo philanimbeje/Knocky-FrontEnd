@@ -1,13 +1,16 @@
 <h1>Moderator</h1>
+<button  class="addBtn"  mat-flat-button color="accent"  (click)="editUser()" ><mat-icon>settings</mat-icon> Edit Profile</button>
 <div class="container">
 
-  <mat-form-field appearance="outline">
+  <mat-form-field appearance="standard">
     <mat-label>Projects</mat-label>
     <select matNativeControl [(ngModel)]="selectedProjectId"  (change)="selectProject()">
       <option *ngFor="let project of projects" value="{{ project.id }}" >{{project.projectName}}</option>
     </select>
   </mat-form-field>
   <button *ngIf="selectedProjectId" class="addBtn"  mat-flat-button color="accent"  (click)="addTestGroup()" ><mat-icon>add_circle</mat-icon> Add TestGroup</button>
+  <button *ngIf="selectedProjectId" class="addBtn"  mat-flat-button color="accent"  (click)="testCycles()" ><mat-icon>next_plan</mat-icon> Test Cycles</button>
+  <button *ngIf="selectedProjectId" class="addBtn"  mat-flat-button color="accent"  (click)="testRecords()" ><mat-icon>list</mat-icon> Test Records</button>
   <table mat-table *ngIf="selectedProjectId" class="mat-elevation-z8" [dataSource]="testGroups" multiTemplateDataRows >
     <ng-container matColumnDef="{{column}}" *ngFor="let column of columnsToDisplay">
       <th mat-header-cell *matHeaderCellDef> {{column}} </th>

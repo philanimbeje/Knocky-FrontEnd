@@ -15,4 +15,8 @@ export class SessionInfo {
   setUser(user: UserModel): void {
     this.user = user;
   }
+
+  clearUser(): void {
+    this.user = null;
+  }
 }

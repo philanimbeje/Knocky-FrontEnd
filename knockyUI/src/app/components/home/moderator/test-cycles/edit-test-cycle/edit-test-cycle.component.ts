@@ -1,4 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Inject, OnInit } from '@angular/core';
+import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { TestCycleDialogData } from '../test-cycles.component';
+
+
 
 @Component({
   selector: 'app-edit-test-cycle',
@@ -7,9 +11,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class EditTestCycleComponent implements OnInit {
 
-  constructor() { }
+  constructor(
+    public dialogRef: MatDialogRef<EditTestCycleComponent>,
+    @Inject(MAT_DIALOG_DATA) public data: TestCycleDialogData,
+   ) { }
 
-  ngOnInit(): void {
+  // tslint:disable-next-line: typedef
+  ngOnInit() {
   }
 
 }

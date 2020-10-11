@@ -16,7 +16,7 @@
             Role: {{element.role.roleName}}
           </div>
           <button mat-fab  (click)="editUser()"><mat-icon>edit</mat-icon></button>
-          <button mat-fab color="warn" (click)="deleteUser()"><mat-icon>delete_outline</mat-icon></button>
+          <button *ngIf="element.role.roleName !='Admin'" mat-fab color="warn" (click)="deleteUser()"><mat-icon>delete_outline</mat-icon></button>
           <button *ngIf="element.role.roleName !='Admin'" mat-fab color="primary" (click)="addProject()"><mat-icon>group</mat-icon></button>
       </div>
     </td>

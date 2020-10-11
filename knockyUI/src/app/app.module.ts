@@ -17,6 +17,7 @@ import {MatCheckboxModule} from '@angular/material/checkbox';
 import {MatSelectModule} from '@angular/material/select';
 import {MatSortModule} from '@angular/material/sort';
 import {MatButtonModule} from '@angular/material/button';
+import {MatMenuModule} from '@angular/material/menu';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -103,7 +104,8 @@ import { TestRecordsComponent } from './components/home/moderator/test-records/t
     MatCardModule,
     MatCheckboxModule,
     MatSortModule,
-    MatButtonModule
+    MatButtonModule,
+    MatMenuModule
   ],
   entryComponents: [
     AddUserComponent,
@@ -117,7 +119,11 @@ import { TestRecordsComponent } from './components/home/moderator/test-records/t
     EditTestGroupComponent,
     AddTestCaseComponent,
     DeleteTestCaseComponent,
-    EditTestCaseComponent
+    EditTestCaseComponent,
+    AddTestCycleComponent,
+    EditTestCycleComponent,
+    EndTestCycleComponent,
+    TestRecordsComponent
   ],
   providers: [{provide: MAT_FORM_FIELD_DEFAULT_OPTIONS, useValue: {floatLabel: 'always'}}],
   bootstrap: [AppComponent],
